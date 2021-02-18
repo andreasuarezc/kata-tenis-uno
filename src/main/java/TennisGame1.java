@@ -19,13 +19,10 @@ public class TennisGame1 implements TennisGame {
         String score = "";
         int tempScore = 0;
         if (nScore1 == nScore2) {
-            score = equalsScore(nScore1, score);
-        } else if (nScore1 >= 4 || nScore2 >= 4) {
-            score = showScore(nScore1, nScore2, score);
-        } else {
-            score = showScore2(nScore1, nScore2, score, tempScore);
-        }
-        return score;
+            return equalsScore(nScore1, score);
+        } if (nScore1 >= 4 || nScore2 >= 4) {
+            return showScore(nScore1, nScore2, score);
+        } return showScore2(nScore1, nScore2, score, tempScore);
     }
 
     public String equalsScore(int nScore1, String score) {
@@ -42,7 +39,6 @@ public class TennisGame1 implements TennisGame {
             default:
                 score = "Deuce";
                 break;
-
         }
         return score;
     }
@@ -50,20 +46,19 @@ public class TennisGame1 implements TennisGame {
     public String showScore(int nScore1, int nScore2, String score) {
         int minusResult = nScore1 - nScore2;
         if (minusResult == 1) {
-            score = "Advantage player1";
-        } else if (minusResult == -1) {
-            score = "Advantage player2";
-        } else if (minusResult >= 2) {
-            score = "Win for player1";
-        } else {
-            score = "Win for player2";
-        }
-        return score;
+            return  "Advantage player1";
+        } if (minusResult == -1) {
+            return  "Advantage player2";
+        } if (minusResult >= 2) {
+            return  "Win for player1";
+        } return  "Win for player2";
     }
 
     public String showScore2(int nScore1, int nScore2, String score, int tempScore) {
         for (int i = 1; i < 3; i++) {
-            if (i == 1) tempScore = nScore1;
+            if (i == 1){
+                tempScore = nScore1;
+            }
             else {
                 score += "-";
                 tempScore = nScore2;
