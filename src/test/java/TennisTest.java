@@ -3,6 +3,8 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collection;
 
+import co.com.sofka.tennis.TennisGame;
+import co.com.sofka.tennis.TennisGame1;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -69,16 +71,16 @@ public class TennisTest {
         int highestScore = Math.max(this.player1Score, this.player2Score);
         for (int i = 0; i < highestScore; i++) {
             if (i < this.player1Score)
-                game.scorePoints("player1");
+                game.wonPoint("player1");
             if (i < this.player2Score)
-                game.scorePoints("player2");
+                game.wonPoint("player2");
         }
         assertEquals(this.expectedScore, game.getScore());
     }
 
     @Test
     public void checkAllScoresTennisGame1() {
-        TennisGame1 game = new TennisGame1("player1", "player2");
+        TennisGame1 game = new TennisGame1("player1");
         checkAllScores(game);
     }
 }
